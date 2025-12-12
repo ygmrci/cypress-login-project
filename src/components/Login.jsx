@@ -137,7 +137,7 @@ export default function Login() {
               invalid={errors.terms}
             />
             <Label htmlFor="terms" check>
-              I agree to terms of service and privacy policy
+              Şartları kabul ediyorum
             </Label>
           </FormGroup>
 
