@@ -17,10 +17,10 @@ const initialForm = {
 };
 
 const errorMessages = {
-  email: "Please enter a valid email address",
+  email: "Lütgen geçerli bir mail adresi giriniz",
   password:
-    "Password must be at least 8 characters long and include at least one uppercase letter and one digit",
-  terms: "You must accept the terms to continue",
+    "Parola en az 8 karakter uzunluğunda olmalı ve en az bir büyük harf ve bir rakam içermelidir.",
+  terms: "Devam etmek için şartları kabul etmelisiniz.",
 };
 
 export default function Login() {
@@ -95,7 +95,7 @@ export default function Login() {
           invalid={errors.email}
         />
         {errors.email && (
-          <FormFeedback data-cy="error-email">
+          <FormFeedback className="error" data-cy="error-email">
             {errorMessages.email}
           </FormFeedback>
         )}
@@ -114,7 +114,7 @@ export default function Login() {
           invalid={errors.password}
         />
         {errors.password && (
-          <FormFeedback data-cy="error-password">
+          <FormFeedback className="error" data-cy="error-password">
             {errorMessages.password}
           </FormFeedback>
         )}
@@ -134,7 +134,7 @@ export default function Login() {
           I agree to terms of service and privacy policy
         </Label>
         {errors.terms && (
-          <FormFeedback data-cy="error-terms">
+          <FormFeedback className="error" data-cy="error-terms">
             {errorMessages.terms}
           </FormFeedback>
         )}
