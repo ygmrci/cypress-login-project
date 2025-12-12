@@ -6,6 +6,9 @@ import {
   Input,
   Button,
   FormFeedback,
+  Card,
+  CardBody,
+  CardHeader,
 } from "reactstrap";
 // eğer react-router-dom v6 kullanıyorsan:
 import { useNavigate } from "react-router-dom";
@@ -81,75 +84,75 @@ export default function Login() {
   };
 
   return (
-    <Form onSubmit={handleSubmit} data-cy="login-form">
-      <FormGroup>
-        <Label for="exampleEmail">Email</Label>
-        <Input
-          data-cy="form-email"
-          id="exampleEmail"
-          name="email"
-          placeholder="Enter your email"
-          type="email"
-          onChange={handleChange}
-          value={form.email}
-          invalid={errors.email}
-        />
-        {errors.email && (
-          <FormFeedback className="error" data-cy="error-email">
-            {errorMessages.email}
-          </FormFeedback>
-        )}
-      </FormGroup>
+    <Card>
+      <CardHeader tag="h3">Login Form</CardHeader>
+      <CardBody>
+        <Form onSubmit={handleSubmit} data-cy="login-form">
+          <FormGroup>
+            <Label for="exampleEmail">Email</Label>
+            <Input
+              data-cy="form-email"
+              id="exampleEmail"
+              name="email"
+              placeholder="Enter your email"
+              type="email"
+              onChange={handleChange}
+              value={form.email}
+              invalid={errors.email}
+            />
+            {errors.email && (
+              <FormFeedback className="error" data-cy="error-email">
+                {errorMessages.email}
+              </FormFeedback>
+            )}
+          </FormGroup>
 
-      <FormGroup>
-        <Label for="examplePassword">Password</Label>
-        <Input
-          data-cy="form-password"
-          id="examplePassword"
-          name="password"
-          placeholder="Enter your password "
-          type="password"
-          onChange={handleChange}
-          value={form.password}
-          invalid={errors.password}
-        />
-        {errors.password && (
-          <FormFeedback className="error" data-cy="error-password">
-            {errorMessages.password}
-          </FormFeedback>
-        )}
-      </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              data-cy="form-password"
+              id="examplePassword"
+              name="password"
+              placeholder="Enter your password "
+              type="password"
+              onChange={handleChange}
+              value={form.password}
+              invalid={errors.password}
+            />
+            {errors.password && (
+              <FormFeedback className="error" data-cy="error-password">
+                {errorMessages.password}
+              </FormFeedback>
+            )}
+          </FormGroup>
 
-      <FormGroup check>
-        <Input
-          data-cy="form-terms"
-          id="terms"
-          name="terms"
-          checked={form.terms}
-          type="checkbox"
-          onChange={handleChange}
-          invalid={errors.terms}
-        />
-        <Label htmlFor="terms" check>
-          I agree to terms of service and privacy policy
-        </Label>
-        {errors.terms && (
-          <FormFeedback className="error" data-cy="error-terms">
-            {errorMessages.terms}
-          </FormFeedback>
-        )}
-      </FormGroup>
+          <FormGroup check>
+            <Input
+              data-cy="form-terms"
+              id="terms"
+              name="terms"
+              checked={form.terms}
+              type="checkbox"
+              onChange={handleChange}
+              invalid={errors.terms}
+            />
+            <Label htmlFor="terms" check>
+              I agree to terms of service and privacy policy
+            </Label>
+          </FormGroup>
 
-      <FormGroup className="text-center p-4">
-        <Button
-          data-cy="form-submit"
-          color="primary"
-          disabled={!isValid}
-          type="submit"
-        >
-          Sign In
-        </Button>
-      </FormGroup>
-    </Form>
+          <FormGroup className="text-center p-4">
+            <Button
+              data-cy="form-submit"
+              color="primary"
+              disabled={!isValid}
+              type="submit"
+            >
+              Sign In
+            </Button>
+          </FormGroup>
+        </Form>
+      </CardBody>
+    </Card>
   );
 }
